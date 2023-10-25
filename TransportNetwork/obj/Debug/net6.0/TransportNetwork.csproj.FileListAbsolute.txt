@@ -1,0 +1,14 @@
+D:\codes\codes for uni\SixthLab\TransportNetwork\bin\Debug\net6.0\TransportNetwork.exe
+D:\codes\codes for uni\SixthLab\TransportNetwork\bin\Debug\net6.0\TransportNetwork.deps.json
+D:\codes\codes for uni\SixthLab\TransportNetwork\bin\Debug\net6.0\TransportNetwork.runtimeconfig.json
+D:\codes\codes for uni\SixthLab\TransportNetwork\bin\Debug\net6.0\TransportNetwork.dll
+D:\codes\codes for uni\SixthLab\TransportNetwork\bin\Debug\net6.0\TransportNetwork.pdb
+D:\codes\codes for uni\SixthLab\TransportNetwork\obj\Debug\net6.0\TransportNetwork.GeneratedMSBuildEditorConfig.editorconfig
+D:\codes\codes for uni\SixthLab\TransportNetwork\obj\Debug\net6.0\TransportNetwork.AssemblyInfoInputs.cache
+D:\codes\codes for uni\SixthLab\TransportNetwork\obj\Debug\net6.0\TransportNetwork.AssemblyInfo.cs
+D:\codes\codes for uni\SixthLab\TransportNetwork\obj\Debug\net6.0\TransportNetwork.csproj.CoreCompileInputs.cache
+D:\codes\codes for uni\SixthLab\TransportNetwork\obj\Debug\net6.0\TransportNetwork.dll
+D:\codes\codes for uni\SixthLab\TransportNetwork\obj\Debug\net6.0\refint\TransportNetwork.dll
+D:\codes\codes for uni\SixthLab\TransportNetwork\obj\Debug\net6.0\TransportNetwork.pdb
+D:\codes\codes for uni\SixthLab\TransportNetwork\obj\Debug\net6.0\TransportNetwork.genruntimeconfig.cache
+D:\codes\codes for uni\SixthLab\TransportNetwork\obj\Debug\net6.0\ref\TransportNetwork.dll
