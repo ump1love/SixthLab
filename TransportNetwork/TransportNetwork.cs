@@ -1,59 +1,56 @@
 ﻿class TransportNetwork
 {
     Random random = new Random();
-    List<(Vehicle vehicle, int density)> vehicles = new List<(Vehicle, int)>();
-    private int carsDensity = 0;
-    private int busesDensity = 0;
-    private int trainsDensity = 0;
+    List<(Vehicle vehicle, int passengers)> vehicles = new List<(Vehicle, int)>();
+
+    private int carsPassengers;
+    private int busesPassengers;
+    private int trainsPassengers;
+    private int carsAmount;
+    private int busesAmount;
+    private int trainsAmount;
 
 
-    public void AddVehicle(Vehicle vehicle, int density)
+    public void AddVehicle(Vehicle vehicle, int passengers)
     {
-        vehicles.Add((vehicle, density));
+        vehicles.Add((vehicle, passengers));
     }
 
     public void RemoveVehicle(Vehicle vehicle)
     {
         var vehicleToRemove = vehicles.FirstOrDefault(x => x.vehicle == vehicle);
-        if (vehicle != null) { vehicles.Remove(vehicleToRemove); }
+        if (vehicle != null)
+        {
+            vehicles.Remove(vehicleToRemove);
+            SettingVehiclesAndPassengers();
+        }
+    }
+
+    public void SettingVehiclesAndPassengers()
+    {
+        carsAmount = 0;
+        carsPassengers = 0;
+        busesAmount = 0;
+        busesPassengers = 0;
+        trainsAmount = 0;
+        trainsPassengers = 0;
+
+        foreach ((Vehicle vehicle, int passengers) in vehicles)
+        {
+            if (vehicle is Car) { ++carsAmount; carsPassengers += passengers; vehicle.LoadPassengers(passengers); int passengersToDisembark = random.Next(1, passengers + 1); vehicle.DisembarkPassengers(passengersToDisembark); }
+            if (vehicle is Bus) { ++busesAmount; busesPassengers += passengers; vehicle.LoadPassengers(passengers); int passengersToDisembark = random.Next(1, passengers + 1); vehicle.DisembarkPassengers(passengersToDisembark); }
+            if (vehicle is Train) { ++trainsAmount; trainsPassengers += passengers; vehicle.LoadPassengers(passengers); int passengersToDisembark = random.Next(1, passengers + 1); vehicle.DisembarkPassengers(passengersToDisembark); }
+        }
     }
 
     public void AmountOfVehicles()
     {
-        int carsAmount = 0;
-        int busesAmount = 0;
-        int trainsAmount = 0;
-
-        foreach ((Vehicle vehicle, int density) in vehicles)
-        {
-            if (vehicle is Car) { ++carsAmount; carsDensity += density; }
-            if (vehicle is Bus) { ++busesAmount; busesDensity += density; }
-            if (vehicle is Train) { ++trainsAmount; trainsDensity += density; }
-        }
-
         Console.WriteLine($"\nThere are currently {vehicles.Count} vehicles.\n" +
-                          $"Cars: {carsAmount}, with {carsDensity} people in them\n" +
-                          $"Buses: {busesAmount}, with {busesDensity} people in them\n" +
-                          $"Trains: {trainsAmount}, with {trainsDensity} people in them\n");
-    }
-    public void MoveVehicles(Route route)
-    {
-        List<string> intermediateStops = new List<string> { "Street A", "Street B", "Street C", "Street D" };
-        List<string> optimizedRoute = route.OptimizeRoute(intermediateStops);
+                          $"Cars: {carsAmount}, with {carsPassengers} people in them\n" +
+                          $"Buses: {busesAmount}, with {busesPassengers} people in them\n" +
+                          $"Trains: {trainsAmount}, with {trainsPassengers} people in them\n");
 
-        foreach ((Vehicle vehicle, int density) in vehicles)
-        {
-            vehicle.Move();
-            HandlePassengerManagement(vehicle, density);
-        }
     }
 
-    private void HandlePassengerManagement(Vehicle vehicle, int density)
-    {
-        int passengersToBoard = random.Next(1, density + 1);
-        int passengersToAlight = random.Next(1, vehicle.CurrentPassengerCount + 1);
 
-        vehicle.BoardPassengers(passengersToBoard);
-        vehicle.AlightPassengers(passengersToAlight);
-    }
 }
