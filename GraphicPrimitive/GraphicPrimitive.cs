@@ -14,8 +14,12 @@
         set { y = value; }
     }
 
-    public void Draw() { }
+    public abstract void Draw();
 
-    public void Move(int x, int y) { }
+    public abstract void Move(int x, int y);
+
+    public abstract void Scale(float factor);
+    public abstract void Scale(float factor, float factorSecond);
+
 
 }
