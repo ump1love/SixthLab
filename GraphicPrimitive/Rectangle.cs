@@ -34,6 +34,22 @@
     }
     public override void Move(int y, int x)
     {
+        for (int temp = 0; temp < y; temp++)
+        {
+            Console.WriteLine();
+        }
+        for (int i = 0; i < Height; i++)
+        {
+            for (int temp = 0; temp < x; temp++)
+            {
+                Console.Write(' ');
+            }
 
+            for (int j = 0; j < Width; j++)
+            {
+                Console.Write('*');
+            }
+            Console.WriteLine();
+        }
     }
 }
